@@ -43,16 +43,17 @@ const App = () => {
 
   return (
     <>
-     <h1 className="text-3xl font-bold text-center mb-4 mt-4">Explore Our Latest Articles</h1>
+    <div className="bg-blue-700 p-8 shadow-md flex " >
+      <h1 className="text-3xl font-bold text-white text-center">Explore Our Latest News</h1>
+    </div>    
     <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2 p-4">
-      {apiData.map(item => (
+      {apiData.map((item,index) => (
         <Data
-          key={item.id}
-          id={item.id}
-          title={item.title}
-          description={item.description}
+          key={index}
+          id={index}  
+          {...item}
           expanded={item.expanded || false}
-          onClick={() => handleCardClick(item.id)}
+          onClick={() => handleCardClick(index)}
         />
       ))}
     </div>
